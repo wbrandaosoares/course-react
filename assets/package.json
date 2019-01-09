@@ -1,0 +1,32 @@
+{
+	"name": "GulpGeral",
+	"version": "1.0.0",
+	"description": "Gulp geral",
+	"author": "Wagner",
+	"main": "gulpfile.js",
+	"license": "MIT",
+	"keywords": "gulp",
+	"devDependencies": {
+		"@babel/cli": "^7.2.0",
+		"@babel/core": "^7.2.0",
+		"@babel/preset-env": "^7.2.0",
+		"@babel/preset-react": "^7.0.0",
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.0.4",
+		"gulp": "^4.0.0",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-clean-css": "^4.0.0",
+		"gulp-plumber": "^1.2.1",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-uglify-es": "^1.0.4",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0",
+		"vinyl-named": "^1.1.0",
+		"webpack": "^4.28.1",
+		"webpack-cli": "^3.1.2",
+		"webpack-stream": "^5.2.1"
+	}
+}
