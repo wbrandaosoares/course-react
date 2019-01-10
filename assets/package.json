@@ -24,6 +24,7 @@
 		"gulp-sass": "^4.0.2",
 		"gulp-sourcemaps": "^2.6.4",
 		"gulp-uglify-es": "^1.0.4",
+		"node-sass": "^4.11.0",
 		"react": "^16.7.0",
 		"react-dom": "^16.7.0",
 		"react-router-dom": "^4.3.1",
