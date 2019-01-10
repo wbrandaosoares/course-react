@@ -22,6 +22,6 @@
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
     <!--<script src="https://unpkg.com/react@16.5.2/umd/react.development.js" crossorigin></script> -->
     <!--<script src="https://unpkg.com/react-dom@16.5.2/umd/react-dom.development.js" crossorigin></script> -->
-	<script src="public/js/pages/index.js"></script>
+	<script src="public/js/index.js"></script>
   </body>
 </html>

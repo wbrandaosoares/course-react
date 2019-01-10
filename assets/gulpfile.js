@@ -1,14 +1,12 @@
 'use strict';
-
-var gulp			= require('gulp'),
+let gulp			= require('gulp'),
     sass			= require('gulp-sass'),
 	plumber			= require('gulp-plumber'),
-    sourcemaps		= require('gulp-sourcemaps'),
+	sourcemaps		= require('gulp-sourcemaps'),
 	uglify			= require('gulp-uglify-es').default,
 	cleancss		= require('gulp-clean-css'),
 	autoprefixer	= require('gulp-autoprefixer'),
-	named			= require('vinyl-named'),
-	webpack			= require('webpack'),
+	named			= require('vinyl-named-with-path'),
 	webpackStream	= require('webpack-stream');
 
 // Set the browser that you want to support
@@ -23,7 +21,7 @@ const SUPPORTED_BROWSERS = [
 ];
 
 gulp.task('build-js', gulp.series(function() {
-	return gulp.src(['js/**/*.js', 'js/**/*.jsx'])
+	return gulp.src('js/**/*.js')
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -36,7 +34,14 @@ gulp.task('build-js', gulp.series(function() {
 			module: {
 				rules: [
 					{
-						test: /\.(js|jsx)$/,
+						test: /\.css$/,
+						use: [
+							{ loader: "style-loader" },
+							{ loader: "css-loader" }
+						]
+					},
+					{
+						test: /\.js$/,
 						exclude: /node_modules/,
 						use: {
 							loader: "babel-loader",
@@ -59,9 +64,9 @@ gulp.task('build-js', gulp.series(function() {
 			}
 		}))
 		.pipe(sourcemaps.init({largeFile: true}))
-		.pipe(uglify()) 
-		.pipe(sourcemaps.write('../../maps'))
-		.pipe(gulp.dest('../public/js/pages'));
+		.pipe(uglify())
+		.pipe(sourcemaps.write('../../public/maps'))
+		.pipe(gulp.dest('../public/js'));
 }));
 
 gulp.task('build-css', gulp.series(function() {
@@ -72,12 +77,13 @@ gulp.task('build-css', gulp.series(function() {
 				this.emit('end');
 			}
 		}))
+		.pipe(named())
 		.pipe(sourcemaps.init({largeFile: true}))  // Process the original sources
 		.pipe(sass())
 		.pipe(autoprefixer({browsers: SUPPORTED_BROWSERS}))
 		.pipe(cleancss({log:false}))
-		.pipe(sourcemaps.write('../../maps')) // Add the map to modified source.
-		.pipe(gulp.dest('../public/css/pages'));
+		.pipe(sourcemaps.write('../../public/maps')) // Add the map to modified source.
+		.pipe(gulp.dest('../public/css'));
 }));
 
 // configure which files to watch and what tasks to use on file changes
