@@ -49,7 +49,8 @@ gulp.task('build-js', gulp.series(function() {
                             plugins: [
                                 ["@babel/plugin-proposal-class-properties"],
                                 ["@babel/plugin-syntax-class-properties"],
-                                ["@babel/plugin-transform-regenerator"]
+                                ["@babel/plugin-transform-regenerator"],
+                                ["@babel/plugin-proposal-object-rest-spread"]
                             ],
                             presets: [
                                 ["@babel/preset-env", {
