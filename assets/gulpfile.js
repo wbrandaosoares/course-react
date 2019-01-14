@@ -7,6 +7,7 @@ let gulp			= require('gulp'),
     cleancss		= require('gulp-clean-css'),
     autoprefixer	= require('gulp-autoprefixer'),
     named			= require('vinyl-named-with-path'),
+    webpack         = require('webpack'),
     webpackStream	= require('webpack-stream');
 
 // Set the browser that you want to support
